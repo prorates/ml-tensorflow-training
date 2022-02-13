@@ -1,21 +1,22 @@
 import pandas as pd
 
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
-from tensorflow.python.client import device_lib
-device_lib.list_local_devices()
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
+# from tensorflow.python.client import device_lib
+# toto=device_lib.list_local_devices()
+# print(toto)
 import tensorflow as tf
 
-try:
-    # Disable all GPUS
-    tf.config.set_visible_devices([], 'GPU')
-    visible_devices = tf.config.get_visible_devices()
-    for device in visible_devices:
-        assert device.device_type != 'GPU'
-except:
-    # Invalid device or cannot modify virtual devices once initialized.\
-    print("INVALID DEVICE")
-    pass
+# try:
+#     # Disable all GPUS
+#     tf.config.set_visible_devices([], 'GPU')
+#     visible_devices = tf.config.get_visible_devices()
+#     for device in visible_devices:
+#         assert device.device_type != 'GPU'
+# except:
+#     # Invalid device or cannot modify virtual devices once initialized.\
+#     print("INVALID DEVICE")
+#     pass
 
 from keras.models import Sequential
 from keras.layers import *
